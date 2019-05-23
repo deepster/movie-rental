@@ -1,0 +1,5 @@
+rootProject.name = 'movie-rental'
+include 'web'
+include 'core'
+include 'core'
+
