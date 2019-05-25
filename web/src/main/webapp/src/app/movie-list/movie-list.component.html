@@ -1,3 +1,7 @@
-<p>
-  movie-list works!
-</p>
+<h2> Movie List </h2>
+
+<ul class="movies" *ngFor="let movie of moviesList">
+  <li>
+    <span class="badge"> {{movie.id}}</span> {{movie.title}}
+  </li>
+</ul>
