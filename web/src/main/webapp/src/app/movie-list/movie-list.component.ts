@@ -1,13 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Movie} from "../shared/Movie";
+import {MovieService} from "../movie.service";
 
-export const movies: Movie[] =
-  [
-    {id : 1 ,title : 'Denis', genre : 'Action', rating : 10, year : 1998},
-    {id : 2 ,title : 'Denis', genre : 'Action', rating : 10, year : 1998},
-    {id : 3 ,title : 'Denis', genre : 'Action', rating : 10, year : 1998},
-    {id : 4 ,title : 'Denis', genre : 'Action', rating : 10, year : 1998},
-  ];
 
 @Component({
   selector: 'app-movie-list',
@@ -16,14 +10,15 @@ export const movies: Movie[] =
 })
 export class MovieListComponent implements OnInit {
 
-  moviesList = movies;
+  movieList: Movie[];
 
   movieListURL = "http://localhost:8080/api/movies";
 
-  constructor() {
+  constructor(private movieService: MovieService) {
   }
 
   ngOnInit() {
+    this.movieList = this.movieService.getMovies();
   }
 
 }

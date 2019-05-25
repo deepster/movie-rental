@@ -1,6 +1,6 @@
 <h2> Movie List </h2>
 
-<ul class="movies" *ngFor="let movie of moviesList">
+<ul *ngFor="let movie of movieList" class="movies">
   <li>
     <span class="badge"> {{movie.id}}</span> {{movie.title}}
   </li>
