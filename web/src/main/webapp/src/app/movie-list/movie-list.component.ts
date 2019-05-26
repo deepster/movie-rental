@@ -14,11 +14,15 @@ export class MovieListComponent implements OnInit {
 
   movieListURL = "http://localhost:8080/api/movies";
 
+  getMovies(): void {
+    this.movieService.getMovies().subscribe(movies => this.movieList = movies);
+  }
+
   constructor(private movieService: MovieService) {
   }
 
   ngOnInit() {
-    this.movieList = this.movieService.getMovies();
+    this.getMovies();
   }
 
 }

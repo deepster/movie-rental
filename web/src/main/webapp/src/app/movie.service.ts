@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Movie} from "./shared/Movie";
+import {Observable, of} from "rxjs";
 
 export const movies: Movie[] =
   [
@@ -15,8 +16,8 @@ export const movies: Movie[] =
 })
 export class MovieService {
 
-  getMovies(): Movie[] {
-    return movies
+  getMovies(): Observable<Movie[]> {
+    return of(movies)
   }
 
   constructor() {
