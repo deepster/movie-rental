@@ -1,20 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {RouterModule} from "@angular/router";
-import { MovieListComponent } from './movie-list/movie-list.component';
-import { AppRoutingModule } from './app-routing.module';
+import {MovieListComponent} from './movie-list/movie-list.component';
+import {AppRoutingModule} from './app-routing.module';
+import {HttpClientModule} from "@angular/common/http";
+import {CreateMovieComponent} from './create-movie/create-movie.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieListComponent
+    MovieListComponent,
+    CreateMovieComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

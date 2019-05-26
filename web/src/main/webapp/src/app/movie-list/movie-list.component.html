@@ -1,7 +1,10 @@
 <h2> Movie List </h2>
 
-<ul *ngFor="let movie of movieList" class="movies">
-  <li>
-    <span class="badge"> {{movie.id}}</span> {{movie.title}}
+<p> Click on a movie to delete it.</p>
+
+<ul class="movies">
+  <li (click)="deleteMovie(movie.id)" *ngFor="let movie of movieList">
+    <span class="rating"> {{movie.rating}} / 10</span> {{movie.title}} ({{movie.year}}) <span
+    class="genre">{{movie.genre}}</span>
   </li>
 </ul>

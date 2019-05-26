@@ -1,0 +1,22 @@
+<div class="container">
+  <br><br>
+  <form>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input #title class="form-control" id="title" placeholder="Avengers" type="text">
+    </div>
+    <div class="form-group">
+      <label for="genre">Genre</label>
+      <input #genre class="form-control" id="genre" placeholder="Action" type="text">
+    </div>
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input #year class="form-control" id="year" placeholder="1998" type="text">
+    </div>
+    <div class="form-group">
+      <label for="year">Rating</label>
+      <input #rating class="form-control" id="rating" placeholder="8" type="text">
+    </div>
+    <button (click)="createMovie(title, genre, year, rating)" class="btn btn-info float-right"> Register</button>
+  </form>
+</div>

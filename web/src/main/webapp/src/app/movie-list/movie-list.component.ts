@@ -12,10 +12,15 @@ export class MovieListComponent implements OnInit {
 
   movieList: Movie[];
 
-  movieListURL = "http://localhost:8080/api/movies";
-
   getMovies(): void {
-    this.movieService.getMovies().subscribe(movies => this.movieList = movies);
+    this.movieService.getMovies().subscribe(movies => {
+      this.movieList = movies['movies'];
+    });
+  }
+
+  deleteMovie(id: number) {
+    this.movieService.deleteMovie(id).subscribe();
+
   }
 
   constructor(private movieService: MovieService) {
@@ -23,6 +28,7 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit() {
     this.getMovies();
+
   }
 
 }

@@ -7,7 +7,7 @@
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
-  width: 15em;
+  width: 20em;
 }
 .movies li {
   cursor: pointer;
@@ -16,7 +16,7 @@
   background-color: #EEE;
   margin: .5em;
   padding: .3em 0;
-  height: 1.6em;
+  /*height: 1.6em;*/
   border-radius: 4px;
 }
 .movies li.selected:hover {
@@ -28,11 +28,8 @@
   background-color: #DDD;
   left: .1em;
 }
-.movies .text {
-  position: relative;
-  top: -3px;
-}
-.movies .badge {
+
+.movies .rating {
   display: inline-block;
   font-size: small;
   color: white;
@@ -42,7 +39,24 @@
   position: relative;
   left: -1px;
   top: -4px;
-  height: 1.8em;
+  height: 2.7em;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
+
+.movies .genre {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #ef5350;
+  line-height: 1em;
+  position: relative;
+  /*right: -9px;*/
+  top: -4px;
+  float: right;
+  height: 2.7em;
+  margin-left: .8em;
+  border-radius: 4px 0 0 4px;
+}
+

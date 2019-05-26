@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Movie} from "./shared/Movie";
-import {Observable, of} from "rxjs";
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+
 
 export const movies: Movie[] =
   [
@@ -16,10 +18,27 @@ export const movies: Movie[] =
 })
 export class MovieService {
 
-  getMovies(): Observable<Movie[]> {
-    return of(movies)
+  private movieListUrl = 'http://localhost:8080/api/movies';
+  private deleteMovieUrl = 'http://localhost:8080/api/movie/';
+  private createMovieUrl = 'http://localhost:8080/api/movie';
+
+  constructor(private httpClient: HttpClient,) {
   }
 
-  constructor() {
+  getMovies(): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(this.movieListUrl);
   }
+
+  deleteMovie(id: number) {
+    return this.httpClient.delete(this.deleteMovieUrl.concat(id.toString()));
+  }
+
+  createMovie(title: String, genre: String, year: String, rating: String) {
+    let body = {
+      title, genre, year, rating
+    };
+    this.httpClient.post(this.createMovieUrl, body).subscribe();
+  }
+
+
 }
