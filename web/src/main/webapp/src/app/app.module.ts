@@ -8,12 +8,14 @@ import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
 import {CreateMovieComponent} from './create-movie/create-movie.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {UpdateMovieComponent} from './update-movie/update-movie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieListComponent,
-    CreateMovieComponent
+    CreateMovieComponent,
+    UpdateMovieComponent,
   ],
   imports: [
     HttpClientModule,
@@ -26,4 +28,5 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -21,6 +21,7 @@ export class MovieService {
   private movieListUrl = 'http://localhost:8080/api/movies';
   private deleteMovieUrl = 'http://localhost:8080/api/movie/';
   private createMovieUrl = 'http://localhost:8080/api/movie';
+  private updateMovieUrl = 'http://localhost:8080/api/movie/';
 
   constructor(private httpClient: HttpClient,) {
   }
@@ -38,6 +39,13 @@ export class MovieService {
       title, genre, year, rating
     };
     this.httpClient.post(this.createMovieUrl, body).subscribe();
+  }
+
+  updateMovie(id: String, title: String, genre: String, year: String, rating: String) {
+    let body = {
+      title, genre, year, rating
+    };
+    this.httpClient.put(this.updateMovieUrl.concat(id.toString()), body).subscribe();
   }
 
 

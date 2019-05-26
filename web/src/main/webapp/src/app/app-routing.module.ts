@@ -5,7 +5,7 @@ import {CreateMovieComponent} from "./create-movie/create-movie.component";
 
 const routes: Routes = [
   {path: 'movies', component: MovieListComponent},
-  {path: 'create', component: CreateMovieComponent}
+  {path: 'create', component: CreateMovieComponent},
 ];
 
 @NgModule({

@@ -11,6 +11,7 @@ import {MovieService} from "../movie.service";
 export class MovieListComponent implements OnInit {
 
   movieList: Movie[];
+  selectedMovie: Movie;
 
   getMovies(): void {
     this.movieService.getMovies().subscribe(movies => {
@@ -18,9 +19,12 @@ export class MovieListComponent implements OnInit {
     });
   }
 
-  deleteMovie(id: number) {
-    this.movieService.deleteMovie(id).subscribe();
-
+  deleteMovie(movie: Movie) {
+    if (this.selectedMovie === movie) {
+      this.movieService.deleteMovie(movie.id).subscribe();
+    } else {
+      this.selectedMovie = movie;
+    }
   }
 
   constructor(private movieService: MovieService) {

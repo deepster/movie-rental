@@ -7,8 +7,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieServiceImplementation implements MovieService {
@@ -41,10 +43,26 @@ public class MovieServiceImplementation implements MovieService {
 
     }
 
+    @Transactional
     @Override
-    public Movie updateMovie(Long id, Movie convertDtoToModel) {
+    public Movie updateMovie(Long id, Movie movie) {
+
+        Optional<Movie> savedMovie = movieRepository.findById(id);
+        if (savedMovie.isPresent()) {
+            savedMovie.get().setTitle(movie.getTitle());
+            savedMovie.get().setGenre(movie.getGenre());
+            savedMovie.get().setYear(movie.getYear());
+            savedMovie.get().setRating(movie.getRating());
+            return savedMovie.get();
+        }
+        if (movie != null) {
+            movieRepository.save(movie);
+            return movie;
+        }
         return null;
+
     }
+
 
     @Override
     public void deleteMovie(Long id) {

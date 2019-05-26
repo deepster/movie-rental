@@ -1,10 +1,13 @@
 <h2> Movie List </h2>
 
-<p> Click on a movie to delete it.</p>
+<p> Click on a movie once to update it.</p>
+<p> Click on a movie twice to delete it.</p>
 
 <ul class="movies">
-  <li (click)="deleteMovie(movie.id)" *ngFor="let movie of movieList">
+  <li (click)="deleteMovie(movie)" *ngFor="let movie of movieList">
     <span class="rating"> {{movie.rating}} / 10</span> {{movie.title}} ({{movie.year}}) <span
     class="genre">{{movie.genre}}</span>
   </li>
 </ul>
+
+<app-update-movie [movie]="selectedMovie"></app-update-movie>
