@@ -1,0 +1,26 @@
+<div *ngIf="movie">
+
+  <h2>{{movie.title | uppercase}} Details</h2>
+
+  <form>
+    <label> ID:  {{movie.id}}</label>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input #title class="form-control" id="title" placeholder="Avengers" type="text" value="{{movie.title}}">
+    </div>
+    <div class="form-group">
+      <label for="genre">Genre</label>
+      <input #genre class="form-control" id="genre" placeholder="Action" type="text" value="{{movie.genre}}">
+    </div>
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input #year class="form-control" id="year" placeholder="1998" type="text" value="{{movie.year}}">
+    </div>
+    <div class="form-group">
+      <label for="rating">Rating</label>
+      <input #rating class="form-control" id="rating" placeholder="8" type="text" value="{{movie.rating}}">
+    </div>
+    <button (click)="updateMovie(title, genre, year, rating)" class="btn btn-info float-right"> Update</button>
+  </form>
+
+</div>
